@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+	
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  width = 100%;
+  margin: auto;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: 10px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="username"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.h3{
+	text-align:center;
+}
+
+
+</style>
+
+<form class="form-signin" method="post">{% csrf_token %} 
+    <div class="d-flex flex-column pb-3"> 
+      <img class="img-fluid mx-auto d-block"src="{% static 'Bloggify_png.png' %}" alt="Bloggify Logo" width="122" height="122">
+    </div>
+    <h1 class="h3 mb-3 fw-normal">Account</h1>
+
+    <div class="form-signin">
+      <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email address" required
+      auto focus value={{account_form.initial.email}}>
+      
+    </div>
+    <div class="form-signin">
+      <input type="text" name="username" class="form-control" id="inputUsername" placeholder="Username" required
+      value="{{account_form.initial.username}}"> 
+    </div>
+
+    {% for field in account_form %}
+		{% for error in field.errors %}
+			<p style="color: red;">{{error}}</p>
+		{% endfor %}
+	{% endfor %}
+
+	{% if account.non_field_errors %}
+		<div style ="color:red;">
+			<p>{{account.non_field_errors}}</p>
+		</div>
+	{% endif %}
+
+	{%if success_message %}
+		<p style="color:green; text-align: center;">{{success_message}}</p>
+	{% endif %}
+
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Save changes</button>
+ 	
+  </form>
+
+{% endblock content %}	

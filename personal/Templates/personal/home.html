@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style type="text/css">
+	@media (max-width: 768px) { 
+		.right-column{
+			margin-left: 0px;
+		}
+	}
+
+	@media (min-width: 768px) { 
+		.right-column{
+			margin-left: 20px;
+		}
+	}
+
+	.blog-post-container{
+		background-color: #fff;
+		margin-bottom: 20px;
+		width: 100%;
+	}
+	.create-post-bar{
+		background-color: #fff;
+		margin-bottom:20px;
+	}
+
+	.left-column{
+		padding:0px;
+	}
+
+	.right-column{
+		padding:0px;
+	}
+
+</style>
+
+<div class="container">
+	<div class="row">
+		
+		<!-- create post bar -->
+
+		<div class="create-post-bar d-lg-none col-lg-7 offset-lg-1">
+			<a href="{% url 'blog:create' %}">Create post</a>
+		</div>
+
+		<!-- end create post bar-->
+
+		<!-- Blog feed -->
+
+		<div class="left-column col-lg-7 offset-lg-1">
+			
+
+			<div class="blog-post-container">
+				<p><a style="color: black">Your Feed</a>
+				</p>
+			</div>
+
+			<div class="blog-post-container">
+				<p><a style="color: red;">Connor J - 3rd year Comp. Engineering @ University of Guelph</a>
+				<hr>
+				As a software QA engineer co-op for the past 4 months, I have had the opportunity to work on various projects and hone my skills. I am happy to report that it is going very well and I am learning a lot each day. From testing software, creating test cases and collaborating with cross-functional teams, I have been able to gain a wealth of experience in the industry. Overall, I am enjoying the challenge and look forward to continuing my growth in this field.</p>
+			</div>
+
+			<div class="blog-post-container">
+				<p><a style="color: red;">Connor J - 3rd year Comp. Engineering @ University of Guelph</a>
+				<hr>Working at Paper as a STEM tutor has been an incredible experience. I have the opportunity to help students understand complex subjects and develop a passion for science, technology, engineering and mathematics. I am constantly inspired by the curiosity and eagerness of the students I work with. Seeing their growth and understanding of STEM subjects is truly rewarding. I am grateful for this opportunity and am excited to continue making a positive impact in students' lives.</p>
+			</div>
+
+			<div class="blog-post-container">
+				<p><a style="color: red;">Connor J - 3rd year Comp. Engineering @ University of Guelph</a>
+				<hr>Being a student at Guelph University studying engineering has been a challenging and rewarding experience. The program combines hands-on projects, theoretical knowledge and real-world applications to provide a comprehensive education. I am constantly learning and growing, and I am grateful for the opportunities and resources available to me as a student. Guelph's strong focus on sustainability and innovation has also inspired me to use my education to make a positive impact on the world. I am excited to see where my degree will take me in the future.</p>
+			</div>
+		</div>
+
+		<!-- end Blog feed-->
+
+		<!-- create post column -->
+
+		<div class="right-column col-lg-3 d-lg-flex d-none flex-column">
+			<div class="create-post-bar">
+				<p>World Blogs</p>
+				<p>Friends</p>
+				<p>Settings</p>
+				<a class="p-2 btn btn-outline-primary" href="{% url 'blog:create' %}">Create post</a>
+			</div>
+		</div>
+
+		<!-- end create post column-->
+	</div>
+</div>
+
+
+
+{% endblock content %}
+
